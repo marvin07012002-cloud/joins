@@ -4,7 +4,9 @@ on Products.CategoryID = Categories.CategoryID
 
 union
 
-select ProductID,ProductName,UnitPrice,CompanyName
+select ProductID,ProductName,UnitPrice,Suppliers.CompanyName,UnitPrice
 from Products right join Suppliers
-on Products.SupplierID = Suppliers.SupplierID
+                         on Products.SupplierID = Suppliers.SupplierID
+
+order by ProductName
 
