@@ -1,5 +1,5 @@
-select Products.ProductName, Categories.CategoryName
+select ProductName,CategoryName,UnitPrice
 from Products join Categories
 on Products.CategoryID = Categories.CategoryID
-order by max(UnitPrice)
-
+where Products.UnitPrice = (select max(UnitPrice)
+                            from Products)
